@@ -1,0 +1,568 @@
+<html>
+<body>
+<pre>
+<h1>礦ision Build Log</h1>
+<h2>Project:</h2>
+C:\Users\write_1\Desktop\一行科技\yixing\yixing.uvproj
+Project File Date:  08/05/2015
+
+<h2>Output:</h2>
+compiling main.c...
+wifi.h(4): warning C318: can't open file 'config.h'
+main.c(32): error C202: 'Buf_Max': undefined identifier
+main.c(32): error C136: invalid dimension size: [0]
+main.c(162): error C202: 'str1': undefined identifier
+main.c(172): error C202: 'str2': undefined identifier
+main.c(181): error C202: 'str3': undefined identifier
+main.c(189): error C202: 'str5': undefined identifier
+main.c(200): error C202: 'str6': undefined identifier
+main.c(202): error C202: 'str7': undefined identifier
+main.c - 8 Error(s), 1 Warning(s).
+compiling uart.c...
+uart.c - 0 Error(s), 0 Warning(s).
+compiling main.c...
+main.c(32): error C202: 'Buf_Max': undefined identifier
+main.c(32): error C136: invalid dimension size: [0]
+main.c - 2 Error(s), 0 Warning(s).
+compiling main.c...
+main.c - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+compiling wifi.c...
+compiling uart.c...
+compiling delay.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?ISOK?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?INIT?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WIFISENDDATA?UART
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAYUS?DELAY
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  _U2SENDDATA
+    MODULE:  .\output\uart.obj (UART)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _U2SENDDATA
+    MODULE:  .\output\uart.obj (UART)
+    ADDRESS: 0877H
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _U2SENDDATA
+    MODULE:  .\output\uart.obj (UART)
+    ADDRESS: 087EH
+Program Size: data=9.0 xdata=1351 code=2509
+creating hex file from ".\output\yixing"...
+".\output\yixing" - 0 Error(s), 7 Warning(s).
+compiling main.c...
+main.h(8): error C141: syntax error near 'cmd', expected ')'
+main.h(10): error C141: syntax error near 'time', expected ')'
+main.h(13): error C141: syntax error near 'cmd', expected ')'
+main.h(14): error C141: syntax error near 'cmd', expected ')'
+main.c - 4 Error(s), 0 Warning(s).
+compiling main.c...
+main.c - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?ISOK?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WIFISENDDATA?UART
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAYUS?DELAY
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  _U2SENDDATA
+    MODULE:  .\output\uart.obj (UART)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _U2SENDDATA
+    MODULE:  .\output\uart.obj (UART)
+    ADDRESS: 087AH
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _U2SENDDATA
+    MODULE:  .\output\uart.obj (UART)
+    ADDRESS: 0881H
+Program Size: data=9.0 xdata=1545 code=2512
+creating hex file from ".\output\yixing"...
+".\output\yixing" - 0 Error(s), 6 Warning(s).
+compiling main.c...
+main.c(154): error C141: syntax error near '{'
+main.c(162): error C141: syntax error near ')'
+main.c - 2 Error(s), 0 Warning(s).
+compiling main.c...
+main.c(154): error C141: syntax error near '{'
+main.c - 1 Error(s), 0 Warning(s).
+compiling main.c...
+main.c - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?ISOK?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WIFISENDDATA?UART
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAYUS?DELAY
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  _U2SENDDATA
+    MODULE:  .\output\uart.obj (UART)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _U2SENDDATA
+    MODULE:  .\output\uart.obj (UART)
+    ADDRESS: 082BH
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _U2SENDDATA
+    MODULE:  .\output\uart.obj (UART)
+    ADDRESS: 0832H
+Program Size: data=9.0 xdata=1545 code=2441
+creating hex file from ".\output\yixing"...
+".\output\yixing" - 0 Error(s), 7 Warning(s).
+Build target 'Target 1'
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?ISOK?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WIFISENDDATA?UART
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAYUS?DELAY
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  _U2SENDDATA
+    MODULE:  .\output\uart.obj (UART)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _U2SENDDATA
+    MODULE:  .\output\uart.obj (UART)
+    ADDRESS: 082BH
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _U2SENDDATA
+    MODULE:  .\output\uart.obj (UART)
+    ADDRESS: 0832H
+Program Size: data=9.0 xdata=1545 code=2441
+creating hex file from ".\output\yixing"...
+".\output\yixing" - 0 Error(s), 7 Warning(s).
+compiling main.c...
+main.c - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?ISOK?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WIFISENDDATA?UART
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAYUS?DELAY
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  _U2SENDDATA
+    MODULE:  .\output\uart.obj (UART)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _U2SENDDATA
+    MODULE:  .\output\uart.obj (UART)
+    ADDRESS: 082BH
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _U2SENDDATA
+    MODULE:  .\output\uart.obj (UART)
+    ADDRESS: 0832H
+Program Size: data=9.0 xdata=1545 code=2441
+creating hex file from ".\output\yixing"...
+".\output\yixing" - 0 Error(s), 7 Warning(s).
+Build target 'Target 1'
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?ISOK?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WIFISENDDATA?UART
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAYUS?DELAY
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  _U2SENDDATA
+    MODULE:  .\output\uart.obj (UART)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _U2SENDDATA
+    MODULE:  .\output\uart.obj (UART)
+    ADDRESS: 082BH
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _U2SENDDATA
+    MODULE:  .\output\uart.obj (UART)
+    ADDRESS: 0832H
+Program Size: data=9.0 xdata=1545 code=2441
+creating hex file from ".\output\yixing"...
+".\output\yixing" - 0 Error(s), 7 Warning(s).
+Build target 'Target 1'
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?ISOK?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WIFISENDDATA?UART
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAYUS?DELAY
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  _U2SENDDATA
+    MODULE:  .\output\uart.obj (UART)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _U2SENDDATA
+    MODULE:  .\output\uart.obj (UART)
+    ADDRESS: 082BH
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _U2SENDDATA
+    MODULE:  .\output\uart.obj (UART)
+    ADDRESS: 0832H
+Program Size: data=9.0 xdata=1545 code=2441
+creating hex file from ".\output\yixing"...
+".\output\yixing" - 0 Error(s), 7 Warning(s).
+Build target 'Target 1'
+compiling uart.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?ISOK?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WIFISENDDATA?UART
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAYUS?DELAY
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  _U2SENDDATA
+    MODULE:  .\output\uart.obj (UART)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _U2SENDDATA
+    MODULE:  .\output\uart.obj (UART)
+    ADDRESS: 082BH
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _U2SENDDATA
+    MODULE:  .\output\uart.obj (UART)
+    ADDRESS: 0832H
+Program Size: data=9.0 xdata=1545 code=2441
+creating hex file from ".\output\yixing"...
+".\output\yixing" - 0 Error(s), 7 Warning(s).
+Build target 'Target 1'
+compiling uart.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?ISOK?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WIFISENDDATA?UART
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAYUS?DELAY
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  _U2SENDDATA
+    MODULE:  .\output\uart.obj (UART)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _U2SENDDATA
+    MODULE:  .\output\uart.obj (UART)
+    ADDRESS: 082BH
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _U2SENDDATA
+    MODULE:  .\output\uart.obj (UART)
+    ADDRESS: 0832H
+Program Size: data=9.0 xdata=1545 code=2441
+creating hex file from ".\output\yixing"...
+".\output\yixing" - 0 Error(s), 7 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+compiling uart.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?ISOK?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WIFISENDDATA?UART
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAYUS?DELAY
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  _U2SENDDATA
+    MODULE:  .\output\uart.obj (UART)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _U2SENDDATA
+    MODULE:  .\output\uart.obj (UART)
+    ADDRESS: 082BH
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _U2SENDDATA
+    MODULE:  .\output\uart.obj (UART)
+    ADDRESS: 0832H
+Program Size: data=9.0 xdata=1545 code=2441
+creating hex file from ".\output\yixing"...
+".\output\yixing" - 0 Error(s), 7 Warning(s).
+Build target 'Target 1'
+compiling uart.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?ISOK?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WIFISENDDATA?UART
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAYUS?DELAY
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  _U2SENDDATA
+    MODULE:  .\output\uart.obj (UART)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _U2SENDDATA
+    MODULE:  .\output\uart.obj (UART)
+    ADDRESS: 082BH
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _U2SENDDATA
+    MODULE:  .\output\uart.obj (UART)
+    ADDRESS: 0832H
+Program Size: data=9.0 xdata=1545 code=2441
+creating hex file from ".\output\yixing"...
+".\output\yixing" - 0 Error(s), 7 Warning(s).
+Build target 'Target 1'
+compiling uart.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?ISOK?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WIFISENDDATA?UART
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAYUS?DELAY
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  _U2SENDDATA
+    MODULE:  .\output\uart.obj (UART)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _U2SENDDATA
+    MODULE:  .\output\uart.obj (UART)
+    ADDRESS: 082BH
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _U2SENDDATA
+    MODULE:  .\output\uart.obj (UART)
+    ADDRESS: 0832H
+Program Size: data=9.0 xdata=1545 code=2444
+creating hex file from ".\output\yixing"...
+".\output\yixing" - 0 Error(s), 7 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?ISOK?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WIFISENDDATA?UART
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAYUS?DELAY
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  _U2SENDDATA
+    MODULE:  .\output\uart.obj (UART)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _U2SENDDATA
+    MODULE:  .\output\uart.obj (UART)
+    ADDRESS: 0836H
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _U2SENDDATA
+    MODULE:  .\output\uart.obj (UART)
+    ADDRESS: 083DH
+Program Size: data=9.0 xdata=1545 code=2464
+creating hex file from ".\output\yixing"...
+".\output\yixing" - 0 Error(s), 7 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?ISOK?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WIFISENDDATA?UART
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAYUS?DELAY
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  _U2SENDDATA
+    MODULE:  .\output\uart.obj (UART)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _U2SENDDATA
+    MODULE:  .\output\uart.obj (UART)
+    ADDRESS: 07FCH
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _U2SENDDATA
+    MODULE:  .\output\uart.obj (UART)
+    ADDRESS: 0803H
+Program Size: data=9.0 xdata=1545 code=2406
+creating hex file from ".\output\yixing"...
+".\output\yixing" - 0 Error(s), 7 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?ISOK?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WIFISENDDATA?UART
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAYUS?DELAY
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  _U2SENDDATA
+    MODULE:  .\output\uart.obj (UART)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _U2SENDDATA
+    MODULE:  .\output\uart.obj (UART)
+    ADDRESS: 07DAH
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _U2SENDDATA
+    MODULE:  .\output\uart.obj (UART)
+    ADDRESS: 07E1H
+Program Size: data=9.0 xdata=1545 code=2372
+creating hex file from ".\output\yixing"...
+".\output\yixing" - 0 Error(s), 7 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?ISOK?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WIFISENDDATA?UART
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAYUS?DELAY
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  _U2SENDDATA
+    MODULE:  .\output\uart.obj (UART)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _U2SENDDATA
+    MODULE:  .\output\uart.obj (UART)
+    ADDRESS: 07E3H
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _U2SENDDATA
+    MODULE:  .\output\uart.obj (UART)
+    ADDRESS: 07EAH
+Program Size: data=9.0 xdata=1545 code=2381
+creating hex file from ".\output\yixing"...
+".\output\yixing" - 0 Error(s), 7 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?ISOK?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WIFISENDDATA?UART
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAYUS?DELAY
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  _U2SENDDATA
+    MODULE:  .\output\uart.obj (UART)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _U2SENDDATA
+    MODULE:  .\output\uart.obj (UART)
+    ADDRESS: 0805H
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _U2SENDDATA
+    MODULE:  .\output\uart.obj (UART)
+    ADDRESS: 080CH
+Program Size: data=9.0 xdata=1545 code=2415
+creating hex file from ".\output\yixing"...
+".\output\yixing" - 0 Error(s), 7 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?ISOK?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WIFISENDDATA?UART
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAYUS?DELAY
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  _U2SENDDATA
+    MODULE:  .\output\uart.obj (UART)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _U2SENDDATA
+    MODULE:  .\output\uart.obj (UART)
+    ADDRESS: 080FH
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _U2SENDDATA
+    MODULE:  .\output\uart.obj (UART)
+    ADDRESS: 0816H
+Program Size: data=9.0 xdata=1545 code=2425
+creating hex file from ".\output\yixing"...
+".\output\yixing" - 0 Error(s), 7 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?ISOK?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WIFISENDDATA?UART
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAYUS?DELAY
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  _U2SENDDATA
+    MODULE:  .\output\uart.obj (UART)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _U2SENDDATA
+    MODULE:  .\output\uart.obj (UART)
+    ADDRESS: 081BH
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _U2SENDDATA
+    MODULE:  .\output\uart.obj (UART)
+    ADDRESS: 0822H
+Program Size: data=9.0 xdata=1545 code=2437
+creating hex file from ".\output\yixing"...
+".\output\yixing" - 0 Error(s), 7 Warning(s).
+compiling main.c...
+main.c - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?ISOK?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WIFISENDDATA?UART
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAYUS?DELAY
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  _U2SENDDATA
+    MODULE:  .\output\uart.obj (UART)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _U2SENDDATA
+    MODULE:  .\output\uart.obj (UART)
+    ADDRESS: 082CH
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _U2SENDDATA
+    MODULE:  .\output\uart.obj (UART)
+    ADDRESS: 0833H
+Program Size: data=9.0 xdata=1545 code=2472
+creating hex file from ".\output\yixing"...
+".\output\yixing" - 0 Error(s), 7 Warning(s).
+Build target 'Target 1'
+compiling uart.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?ISOK?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_WIFISENDDATA?UART
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAYUS?DELAY
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  _U2SENDDATA
+    MODULE:  .\output\uart.obj (UART)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _U2SENDDATA
+    MODULE:  .\output\uart.obj (UART)
+    ADDRESS: 082CH
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _U2SENDDATA
+    MODULE:  .\output\uart.obj (UART)
+    ADDRESS: 0833H
+Program Size: data=9.0 xdata=1545 code=2472
+creating hex file from ".\output\yixing"...
+".\output\yixing" - 0 Error(s), 7 Warning(s).

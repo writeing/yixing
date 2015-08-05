@@ -197,3 +197,79 @@ linking...
 Program Size: data=9.0 xdata=251 code=949
 creating hex file from ".\output\yixing"...
 ".\output\yixing" - 0 Error(s), 5 Warning(s).
+compiling main.c...
+main.c(50): error C141: syntax error near ')'
+main.c(51): error C141: syntax error near '}'
+main.c - 2 Error(s), 0 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+main.c(50): error C141: syntax error near ')'
+main.c(51): error C141: syntax error near '}'
+Target not created
+compiling main.c...
+main.c(50): error C141: syntax error near ')'
+main.c(51): error C141: syntax error near '}'
+main.c - 2 Error(s), 0 Warning(s).
+compiling main.c...
+main.c(49): warning C173: missing return-expression
+main.c(128): error C193: '=': illegal type conversion from/to 'void'
+main.c - 1 Error(s), 1 Warning(s).
+compiling main.c...
+main.c(129): error C193: '=': illegal type conversion from/to 'void'
+main.c - 1 Error(s), 0 Warning(s).
+compiling main.c...
+main.c(123): warning C280: 't': unreferenced local variable
+main.c - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?ISOK?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_UART1_SEND_STRING?CONFIG
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  _WIFISEND
+    MODULE:  .\output\main.obj (MAIN)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _WIFISEND
+    MODULE:  .\output\main.obj (MAIN)
+    ADDRESS: 025BH
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _WIFISEND
+    MODULE:  .\output\main.obj (MAIN)
+    ADDRESS: 0294H
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _WIFISEND
+    MODULE:  .\output\main.obj (MAIN)
+    ADDRESS: 036AH
+Program Size: data=9.0 xdata=1277 code=946
+creating hex file from ".\output\yixing"...
+".\output\yixing" - 0 Error(s), 6 Warning(s).
+compiling main.c...
+main.c(123): warning C280: 't': unreferenced local variable
+main.c - 0 Error(s), 1 Warning(s).
+compiling main.c...
+main.c - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?ISOK?MAIN
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_UART1_SEND_STRING?CONFIG
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  _WIFISEND
+    MODULE:  .\output\main.obj (MAIN)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _WIFISEND
+    MODULE:  .\output\main.obj (MAIN)
+    ADDRESS: 025BH
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _WIFISEND
+    MODULE:  .\output\main.obj (MAIN)
+    ADDRESS: 0294H
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _WIFISEND
+    MODULE:  .\output\main.obj (MAIN)
+    ADDRESS: 036AH
+Program Size: data=9.0 xdata=1275 code=946
+creating hex file from ".\output\yixing"...
+".\output\yixing" - 0 Error(s), 6 Warning(s).

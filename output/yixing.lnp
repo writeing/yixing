@@ -1,5 +1,7 @@
 ".\output\STARTUP.obj",
 ".\output\main.obj",
-".\output\config.obj" 
+".\output\wifi.obj",
+".\output\uart.obj",
+".\output\delay.obj" 
 TO ".\output\yixing" 
 PRINT(".\yixing.m51") RAMSIZE(256) 

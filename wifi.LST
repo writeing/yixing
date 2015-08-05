@@ -1,0 +1,46 @@
+C51 COMPILER V9.03   WIFI                                                                  08/05/2015 17:37:25 PAGE 1   
+
+
+C51 COMPILER V9.03, COMPILATION OF MODULE WIFI
+OBJECT MODULE PLACED IN .\output\wifi.obj
+COMPILER INVOKED BY: D:\Keil\C51\BIN\C51.EXE wifi.c LARGE BROWSE DEBUG OBJECTEXTEND OBJECT(.\output\wifi.obj)
+
+line level    source
+
+   1          #include "wifi.h"
+   2          
+   3          
+   4          void WifiSend(char *cmd)
+   5          {
+   6   1      //      USART2_SEND(cmd);
+   7   1              WifiSendString(cmd);
+   8   1      }
+   9          //void USART2_byte(char a)
+  10          //{
+  11          //              
+  12          //}
+  13          //void USART2_SEND(char *cmd)
+  14          //{
+  15          //      int i=0,j=0;
+  16          //      i=strlen(cmd);
+  17          //      for(j=0;j<i;j++)
+  18          //      {
+  19          //              USART2_byte(*cmd);
+  20          //              cmd++;  
+  21          //      }
+  22          //      USART2_byte('\n');
+  23          //}
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =      3    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
