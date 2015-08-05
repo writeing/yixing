@@ -1,0 +1,345 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        08/05/2015  15:44:25  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+D:\KEIL\C51\BIN\BL51.EXE .\output\STARTUP.obj, .\output\main.obj, .\output\config.obj TO .\output\yixing PRINT (.\yixing
+>> .m51) RAMSIZE (256)
+
+
+MEMORY MODEL: LARGE
+
+
+INPUT MODULES INCLUDED:
+  .\output\STARTUP.obj (?C_STARTUP)
+  .\output\main.obj (MAIN)
+  .\output\config.obj (CONFIG)
+  D:\KEIL\C51\LIB\C51L.LIB (?C_INIT)
+  D:\KEIL\C51\LIB\C51L.LIB (?C?CLDPTR)
+  D:\KEIL\C51\LIB\C51L.LIB (?C?ILDIX)
+
+
+LINK MAP OF MODULE:  .\output\yixing (?C_STARTUP)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            IDATA   0008H     0001H     UNIT         ?STACK
+
+            * * * * * * *  X D A T A   M E M O R Y  * * * * * * *
+            XDATA   0000H     00F4H     UNIT         ?XD?MAIN
+            XDATA   00F4H     0004H     UNIT         _XDATA_GROUP_
+            XDATA   00F8H     0003H     UNIT         ?XD?_UART1_SEND_STRING?CONFIG
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     010CH     UNIT         ?C_INITSEG
+            CODE    010FH     008CH     UNIT         ?C_C51STARTUP
+            CODE    019BH     0084H     UNIT         ?CO?MAIN
+            CODE    021FH     007BH     UNIT         ?PR?_SENDCMD?MAIN
+            CODE    029AH     0057H     UNIT         ?PR?MAIN?MAIN
+            CODE    02F1H     0033H     UNIT         ?PR?_UART1_SEND_STRING?CONFIG
+            CODE    0324H     002FH     UNIT         ?C?LIB_CODE
+            CODE    0353H     0027H     UNIT         ?PR?_SENDDATE?MAIN
+            CODE    037AH     001FH     UNIT         ?PR?_DELAY?MAIN
+            CODE    0399H     0014H     UNIT         ?PR?UARTINIT?CONFIG
+            CODE    03ADH     0008H     UNIT         ?PR?_UART1_SEND_BYTE?CONFIG
+
+
+
+OVERLAY MAP OF MODULE:   .\output\yixing (?C_STARTUP)
+
+
+SEGMENT                                 XDATA_GROUP
+  +--> CALLED SEGMENT                 START    LENGTH
+-----------------------------------------------------
+?C_C51STARTUP                         -----    -----
+  +--> ?PR?MAIN?MAIN
+  +--> ?C_INITSEG
+
+BL51 BANKED LINKER/LOCATER V6.22                                                      08/05/2015  15:44:25  PAGE 2
+
+
+?PR?MAIN?MAIN                         00F4H    0004H
+  +--> ?PR?UARTINIT?CONFIG
+  +--> ?PR?_SENDCMD?MAIN
+  +--> ?PR?_DELAY?MAIN
+  +--> ?PR?_SENDDATE?MAIN
+
+?PR?_SENDCMD?MAIN                     -----    -----
+  +--> ?CO?MAIN
+
+?PR?_SENDDATE?MAIN                    -----    -----
+  +--> ?CO?MAIN
+
+
+
+UNRESOLVED EXTERNAL SYMBOLS:
+   _WIFISEND
+
+
+
+SYMBOL TABLE OF MODULE:  .\output\yixing (?C_STARTUP)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        ?C_STARTUP
+  C:010FH         SEGMENT       ?C_C51STARTUP
+  I:0008H         SEGMENT       ?STACK
+  C:0000H         PUBLIC        ?C_STARTUP
+  D:00E0H         SYMBOL        ACC
+  D:00F0H         SYMBOL        B
+  D:0083H         SYMBOL        DPH
+  D:0082H         SYMBOL        DPL
+  N:0000H         SYMBOL        IBPSTACK
+  N:0100H         SYMBOL        IBPSTACKTOP
+  N:0080H         SYMBOL        IDATALEN
+  C:0112H         SYMBOL        IDATALOOP
+  N:0000H         SYMBOL        PBPSTACK
+  N:0100H         SYMBOL        PBPSTACKTOP
+  N:0000H         SYMBOL        PDATALEN
+  N:0000H         SYMBOL        PDATASTART
+  N:0000H         SYMBOL        PPAGE
+  N:0000H         SYMBOL        PPAGEENABLE
+  D:00A0H         SYMBOL        PPAGE_SFR
+  D:0081H         SYMBOL        SP
+  C:010FH         SYMBOL        STARTUP1
+  N:0000H         SYMBOL        XBPSTACK
+  N:0000H         SYMBOL        XBPSTACKTOP
+  N:0000H         SYMBOL        XDATALEN
+  N:0000H         SYMBOL        XDATASTART
+  C:0000H         LINE#         126
+  C:010FH         LINE#         133
+  C:0111H         LINE#         134
+  C:0112H         LINE#         135
+  C:0113H         LINE#         136
+  C:0115H         LINE#         185
+  C:0118H         LINE#         196
+  -------         ENDMOD        ?C_STARTUP
+BL51 BANKED LINKER/LOCATER V6.22                                                      08/05/2015  15:44:25  PAGE 3
+
+
+
+  -------         MODULE        MAIN
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  D:00C0H         PUBLIC        P4
+  D:00C8H         PUBLIC        P5
+  D:00E8H         PUBLIC        P6
+  D:00F8H         PUBLIC        P7
+  X:0000H         PUBLIC        RemoteIP
+  D:00A8H         PUBLIC        IE
+  C:037EH         PUBLIC        _delay
+  X:0004H         PUBLIC        passwd
+  D:00B8H         PUBLIC        IP
+  D:00D8H         PUBLIC        CCON
+  C:029AH         PUBLIC        main
+  X:0011H         PUBLIC        Port
+  C:0353H         PUBLIC        _sendDate
+  D:0098H         PUBLIC        SCON
+  X:0013H         PUBLIC        ssid
+  D:0088H         PUBLIC        TCON
+  X:0016H         PUBLIC        GetCmd
+  X:0060H         PUBLIC        PostCmd
+  C:021FH         PUBLIC        _sendCmd
+  X:00E6H         PUBLIC        IPAddress
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          _SENDCMD
+  D:0006H         SYMBOL        cmd
+  C:021FH         LINE#         45
+  C:021FH         LINE#         46
+  C:021FH         LINE#         47
+  C:024CH         LINE#         48
+  C:024CH         LINE#         49
+  C:024CH         LINE#         50
+  C:0252H         LINE#         51
+  C:0254H         LINE#         52
+  C:0254H         LINE#         53
+  C:025DH         LINE#         54
+  C:0263H         LINE#         55
+  C:0265H         LINE#         56
+  C:0265H         LINE#         57
+  C:026BH         LINE#         58
+  C:026DH         LINE#         59
+  C:026DH         LINE#         60
+  C:0273H         LINE#         61
+  C:0275H         LINE#         62
+  C:0275H         LINE#         63
+  C:027BH         LINE#         64
+  C:027DH         LINE#         65
+  C:027DH         LINE#         66
+  C:0283H         LINE#         67
+  C:0285H         LINE#         68
+  C:0285H         LINE#         69
+  C:028BH         LINE#         70
+  C:028DH         LINE#         71
+BL51 BANKED LINKER/LOCATER V6.22                                                      08/05/2015  15:44:25  PAGE 4
+
+
+  C:0296H         LINE#         72
+  C:0296H         LINE#         73
+  C:0299H         LINE#         74
+  -------         ENDPROC       _SENDCMD
+  -------         PROC          _SENDDATE
+  D:0006H         SYMBOL        cmd
+  C:0353H         LINE#         81
+  C:0353H         LINE#         82
+  C:0353H         LINE#         83
+  C:035EH         LINE#         84
+  C:035EH         LINE#         85
+  C:035EH         LINE#         86
+  C:0364H         LINE#         87
+  C:0366H         LINE#         88
+  C:0366H         LINE#         89
+  C:036CH         LINE#         90
+  C:036EH         LINE#         91
+  C:0377H         LINE#         92
+  C:0377H         LINE#         93
+  C:0379H         LINE#         94
+  -------         ENDPROC       _SENDDATE
+  C:037AH         SYMBOL        L?0042
+  -------         PROC          L?0041
+  -------         ENDPROC       L?0041
+  C:037AH         SYMBOL        L?0042
+  -------         PROC          _DELAY
+  D:0006H         SYMBOL        time
+  -------         DO            
+  D:0004H         SYMBOL        y
+  -------         ENDDO         
+  C:037EH         LINE#         101
+  C:037EH         LINE#         102
+  C:037EH         LINE#         103
+  C:037EH         LINE#         104
+  C:0388H         LINE#         105
+  C:0388H         LINE#         106
+  C:038CH         LINE#         107
+  C:0398H         LINE#         109
+  -------         ENDPROC       _DELAY
+  -------         PROC          MAIN
+  -------         DO            
+  X:00F4H         SYMBOL        i
+  X:00F6H         SYMBOL        t
+  -------         ENDDO         
+  C:029AH         LINE#         111
+  C:029AH         LINE#         112
+  C:029AH         LINE#         113
+  C:02A1H         LINE#         114
+  C:02A4H         LINE#         115
+  C:02A4H         LINE#         116
+  C:02A4H         LINE#         117
+  C:02BDH         LINE#         118
+  C:02BDH         LINE#         119
+  C:02C8H         LINE#         120
+  C:02CBH         LINE#         121
+  C:02DBH         LINE#         122
+  C:02E2H         LINE#         123
+BL51 BANKED LINKER/LOCATER V6.22                                                      08/05/2015  15:44:25  PAGE 5
+
+
+  C:02E5H         LINE#         124
+  C:02ECH         LINE#         125
+  C:02EFH         LINE#         126
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        MAIN
+
+  -------         MODULE        CONFIG
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  D:00C0H         PUBLIC        P4
+  D:00C8H         PUBLIC        P5
+  B:00A8H.7       PUBLIC        EA
+  D:00E8H         PUBLIC        P6
+  D:00F8H         PUBLIC        P7
+  D:00A8H         PUBLIC        IE
+  D:00B8H         PUBLIC        IP
+  B:0098H.1       PUBLIC        TI
+  D:00D8H         PUBLIC        CCON
+  D:0099H         PUBLIC        SBUF
+  D:0087H         PUBLIC        PCON
+  D:0098H         PUBLIC        SCON
+  C:0399H         PUBLIC        UartInit
+  D:0089H         PUBLIC        TMOD
+  D:0088H         PUBLIC        TCON
+  C:02F1H         PUBLIC        _UART1_Send_String
+  D:008DH         PUBLIC        TH1
+  D:008BH         PUBLIC        TL1
+  C:03ADH         PUBLIC        _UART1_Send_Byte
+  B:0088H.6       PUBLIC        TR1
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          _UART1_SEND_BYTE
+  D:0007H         SYMBOL        ddata
+  C:03ADH         LINE#         4
+  C:03ADH         LINE#         5
+  C:03ADH         LINE#         6
+  C:03AFH         LINE#         7
+  C:03B2H         LINE#         8
+  C:03B4H         LINE#         9
+  -------         ENDPROC       _UART1_SEND_BYTE
+  -------         PROC          _UART1_SEND_STRING
+  X:00F8H         SYMBOL        str
+  C:02F1H         LINE#         11
+  C:02FCH         LINE#         12
+  C:02FCH         LINE#         13
+  C:030CH         LINE#         14
+  C:030CH         LINE#         15
+  C:0321H         LINE#         16
+  C:0323H         LINE#         17
+  -------         ENDPROC       _UART1_SEND_STRING
+  -------         PROC          UARTINIT
+  C:0399H         LINE#         19
+  C:0399H         LINE#         20
+  C:0399H         LINE#         21
+  C:039CH         LINE#         22
+BL51 BANKED LINKER/LOCATER V6.22                                                      08/05/2015  15:44:25  PAGE 6
+
+
+  C:039FH         LINE#         23
+  C:03A2H         LINE#         24
+  C:03A5H         LINE#         25
+  C:03A8H         LINE#         26
+  C:03AAH         LINE#         27
+  C:03ACH         LINE#         29
+  -------         ENDPROC       UARTINIT
+  -------         ENDMOD        CONFIG
+
+  -------         MODULE        ?C?CLDPTR
+  C:0324H         PUBLIC        ?C?CLDPTR
+  -------         ENDMOD        ?C?CLDPTR
+
+  -------         MODULE        ?C?ILDIX
+  C:033DH         PUBLIC        ?C?ILDIX
+  -------         ENDMOD        ?C?ILDIX
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_UART1_SEND_STRING?CONFIG
+
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  _WIFISEND
+    MODULE:  .\output\main.obj (MAIN)
+
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _WIFISEND
+    MODULE:  .\output\main.obj (MAIN)
+    ADDRESS: 025BH
+
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _WIFISEND
+    MODULE:  .\output\main.obj (MAIN)
+    ADDRESS: 0294H
+
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  _WIFISEND
+    MODULE:  .\output\main.obj (MAIN)
+    ADDRESS: 0375H
+
+Program Size: data=9.0 xdata=251 code=949
+LINK/LOCATE RUN COMPLETE.  5 WARNING(S),  0 ERROR(S)
