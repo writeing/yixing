@@ -12,11 +12,11 @@
 /*****************************************/
 uchar ssid[]={"ih"};
 uchar passwd[]={"yixing123456"};
-uchar IPAddress[]={"192,168,1,104"};
+uchar IPAddress[]={"192,168,1,100"};
 uint Port=5000;
 uchar RemoteIP[4]={0};
-char GetCmd[]={"GET / HTTP/1.1\r\nHost: 192.168.1.104\r\nUser-Agent: abc\r\nConnection: close\r\n"};
-char PostCmd[]={"POST / HTTP/1.1\r\nHost: 192.168.1.104\r\nUser-Agent: abc\r\nContent-type: text/plain\r\nContent-Length:10\r\n\r\nabcdefghij\r\nConnection: close\r\n"};
+char GetCmd[]={"GET / HTTP/1.1\r\nHost: 192.168.1.100\r\nUser-Agent: abc\r\nConnection: close\r\n"};
+char PostCmd[]={"POST / HTTP/1.1\r\nHost: 192.168.1.100\r\nUser-Agent: abc\r\nContent-type: text/plain\r\nContent-Length:10\r\n\r\nabcdefghij\r\nConnection: close\r\n"};
 char buffer[1024];
 
 
@@ -41,25 +41,6 @@ sbit LED3 = P5^2;				// 定义LED3为P5.3
 ***************************/
 
 /**************************
-函数名称：
-函数作用：
-函数参数：
-函数备注：
-***************************/
-char isOK()
-{
-	int i=0;
-	char OK[]={"ok"};
-	char err[]={"err"};
-	int t=0;
-	t= strlen(buffer);
-	if(buffer[t-2]=='o'&&buffer[t-1]=='k')
-	{
-		return 1;
-	}
-	return '0';	
-}
-/**************************
 函数名称:sendCmd
 函数作用：发送wifi参数
 函数参数：cmd
@@ -74,13 +55,14 @@ void sendCmd(uint cmd)
 			break;
 		case 2:
 		WifiSend("AT+CWMODE=3");
-		WifiSend("AT+RST");
+		delay(100);
+	//	WifiSend("AT+RST");
 			break;
 		case 3:
 		WifiSend("AT+CWQAP");
 			break;
 		case 4:
-		WifiSend("AT+CIPSTART=\"TCP\",\"192.168.1.104\",5000");
+		WifiSend("AT+CIPSTART=\"TCP\",\"192.168.1.100\",5000");
 			break;
 		case 5:
 		WifiSend("AT+CIPSEND");
@@ -128,6 +110,12 @@ void delay(uint time)
 		while(y--);
 	}
 }
+/**************************
+函数名称：Init
+函数作用：初始化一些设置
+函数参数：
+函数备注：
+***************************/
 void Init()
 {		
 	RST = 1;                                      // ESP8266复位功能脚，拉低会将ESP8266复位
@@ -137,15 +125,15 @@ void Init()
 	EA = 1;                                       // 总中断打开
 	DelayMS(1000);							                  // 延时一段时间，让ESP8266启动
 
-  	U1SendString("123456789");                        // 将ESP8266启动信息通过串口1打印出    	
+  	U1SendString(Rec_Buf);                        // 将ESP8266启动信息通过串口1打印出    	
   	U1SendString("Welcome to LSE STUDIO,\r\n");	
-	U1SendString("aaa");
+	CLR_Buf();                                 		//清除缓存内容	
 	while(!Hand("OK"))                            //判断是否握手成功,如果不成功延时一会,再发送AT握手指令
-	{
-		CLR_Buf();                                 		//清除缓存内容	
+	{	
+		CLR_Buf();	
 		WifiSendString("AT");                         //发送联机指令 
 		DelayMS(500);
-		U1SendString("AT\n");
+		U1SendString(Rec_Buf);
 	}
 	CLR_Buf();                                    //清除缓存内容
   	U1SendString("OK,Succeed Establish connection with ESP8266\r\n");		
@@ -153,59 +141,104 @@ void Init()
 
 	
 	while(!(Hand("OK")))        //判断是否设置成功，如不成功，延时后再次发送
-	{		
+	{	
+		CLR_Buf();	
 		sendCmd(CWMODE);                         //发送设置ESP8266工作模式指令	
-		DelayMS(500);		
+		DelayMS(500);
+		U1SendString(Rec_Buf);
+		if(Hand("no change"))		
+		{
+			U1SendString(Rec_Buf);
+			break;
+		}		
 	}
 	CLR_Buf();                 
   	U1SendString("OK,ESP8266 has been set as Station Mode\r\n");	
 
 	
-	while(!Hand("OK")|Hand("no change"))    										 		//判断是否连接WiFi路由器，如不成功，延时后再次发送
-	{		
+	while(!Hand("OK"))    										 		//判断是否连接WiFi路由器，如不成功，延时后再次发送
+	{	
+		CLR_Buf();	
 		sendCmd(CWJAP); 	
-		DelayMS(2000);		
+		DelayMS(2000);
+		if(Hand("no change"))		//如果IP地址已经存在
+		{
+			U1SendString(Rec_Buf);
+			break;
+		}
+		U1SendString(Rec_Buf);		
 	}
 	LED2 = 0;
 	CLR_Buf();              
   	U1SendString("OK,Succeed establish connection with WiFi AP\r\n");			
 	while(!Hand("Linked"))                        //判断是否连接TCP sever，如不成功，延时后再次发送
 	{
+		CLR_Buf();
 		sendCmd(CIPSTART);  
 		DelayMS(3000);
-		
+		U1SendString(Rec_Buf);
 	}
 	CLR_Buf();                
   	U1SendString("OK,Succeed establish connection with TCP sever\r\n");			
 	LED1 = 1;
-	LED2 = 1;		
-	while(!Hand("SEND OK"))     									//判断是否发送数据成功，如不成功，延时后再次发送
+	LED2 = 1;	
+	sendCmd(CIPMODE); //数据发送指令 
+	DelayMS(1000);	
+	while(!Hand("Unlink"))     									//判断是否发送数据成功，如不成功，延时后再次发送
 	{
-
-		sendCmd(CIPMODE); //数据发送指令 
-		DelayMS(100);		
+		CLR_Buf();		
 		sendCmd(CIPSEND); //数据内容	
 		DelayMS(500);
 		sendDate(1); //数据内容	
 		DelayMS(500);
+		U1SendString(Rec_Buf);
 	}
 	CLR_Buf();                
   	U1SendString("Congratulations, You can send commands through TCP sever now\r\n");							
 }
+/**************************
+函数名称：
+函数作用：
+函数参数：
+函数备注：
+***************************/
+bit setWifi(int cmd,unsigned char *str)
+{
+	while(!Hand("OK"))
+	{
+		CLR_Buf();	
+		sendCmd(cmd);
+		DelayMS(2000);
+		U1SendString(Rec_Buf);
+		if(Hand("no change")|Hand("Linked"))
+		{
+			break;			
+		}
+	}			
+}
+
+
+
 int main()
 {
 	int i=0;
-	U1SendString("wocaonima\n");
 	Init();
+	init_port();
 	U1SendString("tooo\n");
 	while(1)
 	{
 		U1SendString("wangdaye\r\n");	
+		delay(1000);
 	}
 	return 0;
 }
 
-
+ /**************************
+函数名称：Hand
+函数作用：判断是否运行成功
+函数参数：输入要判断的字符串
+函数备注：
+***************************/
 bit Hand(unsigned char *a)
 { 
     if(strstr(Rec_Buf,a)!=NULL)
@@ -213,7 +246,12 @@ bit Hand(unsigned char *a)
 	else
 		return 0;
 }
-
+/**************************
+函数名称：CLR_Buf
+函数作用：清空接收缓存
+函数参数：
+函数备注：
+***************************/
 void CLR_Buf(void)
 {
 	unsigned char k;
@@ -247,9 +285,9 @@ void Uart1() interrupt 4 using 1
 
 
 
-void Uart2() interrupt 8 using 1
+void Uart2() interrupt 8
 {
-	IE2 = 0x00;	
+	IE2 = 0x00;
     if (S2CON & S2RI)
     {
         S2CON &= ~S2RI;         
@@ -264,6 +302,36 @@ void Uart2() interrupt 8 using 1
     {
         S2CON &= ~S2TI;            
     }
-	IE2 = 0x01;		
+	IE2 = 0x01;
 }
 
+
+
+
+
+
+/**************************
+函数名称：init_port
+函数作用：初始化一些串口数据，让每个IO口都是通用IO
+函数参数：
+函数备注：
+***************************/
+void init_port()
+{
+P0M0 = 0x00;
+P0M1 = 0x00;
+P1M0 = 0x00;
+P1M1 = 0x00;
+P2M0 = 0x00;
+P2M1 = 0x00;
+P3M0 = 0x00;
+P3M1 = 0x00;
+P4M0 = 0x00;
+P4M1 = 0x00;
+P5M0 = 0x00;
+P5M1 = 0x00;
+P6M0 = 0x00;
+P6M1 = 0x00;
+P7M0 = 0x00;
+P7M1 = 0x00;
+}

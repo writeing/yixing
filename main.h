@@ -21,7 +21,7 @@
 
 
 
-
+void init_port(void);
 char isOK(void);			  //判断是否成功
 void sendCmd(uint cmd);		  //发送命令
 void CLR_Buf(void);			  //清空接受缓存区
