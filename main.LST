@@ -1,4 +1,4 @@
-C51 COMPILER V9.03   MAIN                                                                  08/06/2015 11:49:22 PAGE 1   
+C51 COMPILER V9.03   MAIN                                                                  08/06/2015 16:21:44 PAGE 1   
 
 
 C51 COMPILER V9.03, COMPILATION OF MODULE MAIN
@@ -19,16 +19,16 @@ line level    source
   10          /*****************************************/
   11          
   12          /*****************************************/
-  13          uchar ssid[]={"ih"};
-  14          uchar passwd[]={"yixing123456"};
+  13          uchar ssid[]={"HR"};
+  14          uchar passwd[]={"1234567890"};
   15          uchar IPAddress[]={"192,168,1,100"};
   16          uint Port=5000;
   17          uchar RemoteIP[4]={0};
-  18          char GetCmd[]={"GET / HTTP/1.1\r\nHost: 192.168.1.100\r\nUser-Agent: abc\r\nConnection: close\r\n"};
+  18          char GetCmd[]={"GET /test HTTP/1.1\r\nHost: 192.168.1.100\r\nUser-Agent: abc\r\n\r\n"};//Connection: close
   19          char PostCmd[]={"POST / HTTP/1.1\r\nHost: 192.168.1.100\r\nUser-Agent: abc\r\nContent-type: text/plain\r\n
-             -Content-Length:10\r\n\r\nabcdefghij\r\nConnection: close\r\n"};
+             -Content-Length:10\r\n\r\nabcdefghij\r\n"};
   20          char buffer[1024];
-  21          
+  21          char datelen=0;
   22          
   23          sbit RST = P2^6;
   24          
@@ -51,284 +51,344 @@ line level    source
   41          ***************************/
   42          
   43          /**************************
-  44          函数名称：
-  45          函数作用：
-  46          函数参数：
+  44          函数名称:sendCmd
+  45          函数作用：发送wifi参数
+  46          函数参数：cmd
   47          函数备注：
   48          ***************************/
-  49          char isOK()
+  49          void sendCmd(uint cmd)
   50          {
-  51   1              int i=0;
-  52   1              char OK[]={"ok"};
-  53   1              char err[]={"err"};
-  54   1              int t=0;
-C51 COMPILER V9.03   MAIN                                                                  08/06/2015 11:49:22 PAGE 2   
+  51   1              switch(cmd)
+  52   1              {
+  53   2                      case 1:
+  54   2                      WifiSend("AT+CWJAP=\"ih\",\"yixing123456\"");
+C51 COMPILER V9.03   MAIN                                                                  08/06/2015 16:21:44 PAGE 2   
 
-  55   1              t= strlen(buffer);
-  56   1              if(buffer[t-2]=='o'&&buffer[t-1]=='k')
-  57   1              {
-  58   2                      return 1;
-  59   2              }
-  60   1              return '0';     
-  61   1      }
-  62          /**************************
-  63          函数名称:sendCmd
-  64          函数作用：发送wifi参数
-  65          函数参数：cmd
-  66          函数备注：
-  67          ***************************/
-  68          void sendCmd(uint cmd)
-  69          {
-  70   1              switch(cmd)
-  71   1              {
-  72   2                      case 1:
-  73   2                      WifiSend("AT+CWJAP=\"ih\",\"yixing123456\"");
-  74   2                              break;
-  75   2                      case 2:
-  76   2                      WifiSend("AT+CWMODE=3");
-  77   2                      delay(100);
-  78   2              //      WifiSend("AT+RST");
-  79   2                              break;
-  80   2                      case 3:
-  81   2                      WifiSend("AT+CWQAP");
-  82   2                              break;
-  83   2                      case 4:
-  84   2                      WifiSend("AT+CIPSTART=\"TCP\",\"192.168.1.100\",5000");
-  85   2                              break;
-  86   2                      case 5:
-  87   2                      WifiSend("AT+CIPSEND");
-  88   2                              break;
-  89   2                      case 6:
-  90   2                      WifiSend("AT+CIPMODE=1");
-  91   2                              break;
-  92   2                      case 7:
-  93   2                      WifiSend("AT+CIPCLOSE");
-  94   2                              break;
-  95   2                      default :WifiSend("AT+RST"); 
-  96   2              }
-  97   1      }
-  98          /**************************
-  99          函数名称:sendDate
- 100          函数作用：发送wifi数据
- 101          函数参数：cmd
- 102          函数备注：
- 103          ***************************/
- 104          void sendDate(uint cmd)
- 105          {
- 106   1              switch(cmd)
- 107   1              {
- 108   2                      case 1:
- 109   2                      WifiSend(GetCmd);
- 110   2                              break;
- 111   2                      case 2:         
- 112   2                      WifiSend(PostCmd);
- 113   2                              break;
- 114   2                      default :WifiSend("AT+RST"); 
- 115   2              }
- 116   1      }
-C51 COMPILER V9.03   MAIN                                                                  08/06/2015 11:49:22 PAGE 3   
+  55   2                              break;
+  56   2                      case 2:
+  57   2                      WifiSend("AT+CWMODE=3");
+  58   2                      delay(100);
+  59   2              //      WifiSend("AT+RST");
+  60   2                              break;
+  61   2                      case 3:
+  62   2                      WifiSend("AT+CWQAP");
+  63   2                              break;
+  64   2                      case 4:
+  65   2                      WifiSend("AT+CIPSTART=\"TCP\",\"192.168.1.100\",5000");
+  66   2                              break;
+  67   2                      case 5:
+  68   2                      WifiSend("AT+CIPSEND");
+  69   2                              break;
+  70   2                      case 6:
+  71   2                      WifiSend("AT+CIPMODE=1");
+  72   2                              break;
+  73   2                      case 7:
+  74   2                      WifiSend("AT+CIPCLOSE");
+  75   2                              break;
+  76   2                      default :WifiSend("AT+RST"); 
+  77   2              }
+  78   1      }
+  79          /**************************
+  80          函数名称:sendDate
+  81          函数作用：发送wifi数据
+  82          函数参数：cmd
+  83          函数备注：
+  84          ***************************/
+  85          void sendDate(uint cmd,uchar *str)
+  86          {
+  87   1              str = str;
+  88   1              switch(cmd)
+  89   1              {
+  90   2                      case 1:
+  91   2                              WifiSend(GetCmd);
+  92   2                              break;
+  93   2                      case 2:         
+  94   2                              WifiSend(PostCmd);
+  95   2                              break;
+  96   2                      default :WifiSend("AT+RST"); 
+  97   2              }
+  98   1      }
+  99          /**************************
+ 100          函数名称：delay()
+ 101          函数作用：延时
+ 102          函数参数：延时时间，单位 秒
+ 103          函数备注：
+ 104          ***************************/
+ 105          void delay(uint time)
+ 106          {
+ 107   1              uint y=0;
+ 108   1              while(time--)
+ 109   1              {
+ 110   2                      y=250;
+ 111   2                      while(y--);
+ 112   2              }
+ 113   1      }
+ 114          /**************************
+ 115          函数名称：Init
+ 116          函数作用：初始化一些设置
+C51 COMPILER V9.03   MAIN                                                                  08/06/2015 16:21:44 PAGE 3   
 
- 117          /**************************
- 118          函数名称：delay()
- 119          函数作用：延时
- 120          函数参数：延时时间，单位 秒
- 121          函数备注：
- 122          ***************************/
- 123          void delay(uint time)
- 124          {
- 125   1              uint y=0;
- 126   1              while(time--)
- 127   1              {
- 128   2                      y=250;
- 129   2                      while(y--);
- 130   2              }
- 131   1      }
- 132          void Init()
- 133          {               
- 134   1              RST = 1;                                      // ESP8266复位功能脚，拉低会将ESP8266复位
- 135   1              UartInit();                                                                   // 初始化串口
- 136   1              ES = 1;                                       // 串口1中断打开
- 137   1              IE2 = 0x01;                                   // 串口2中断打开
- 138   1              EA = 1;                                       // 总中断打开
- 139   1              DelayMS(1000);                                                                    // 延时一段时间，让ESP8266启动
- 140   1      
- 141   1              U1SendString(Rec_Buf);                        // 将ESP8266启动信息通过串口1打印出       
- 142   1              U1SendString("Welcome to LSE STUDIO,\r\n");     
- 143   1              CLR_Buf();                                              //清除缓存内容  
- 144   1              while(!Hand("OK"))                            //判断是否握手成功,如果不成功延时一会,再发送AT握手指令
- 145   1              {       
- 146   2                      CLR_Buf();      
- 147   2                      WifiSendString("AT");                         //发送联机指令 
- 148   2                      DelayMS(500);
- 149   2                      U1SendString(Rec_Buf);
- 150   2              }
- 151   1              CLR_Buf();                                    //清除缓存内容
- 152   1              U1SendString("OK,Succeed Establish connection with ESP8266\r\n");               
- 153   1              LED1 = 0;
- 154   1      
- 155   1              
- 156   1              while(!(Hand("OK")))        //判断是否设置成功，如不成功，延时后再次发送
- 157   1              {       
- 158   2                      CLR_Buf();      
- 159   2                      sendCmd(CWMODE);                         //发送设置ESP8266工作模式指令  
- 160   2                      DelayMS(500);
- 161   2                      U1SendString(Rec_Buf);
- 162   2                      if(Hand("no change"))           
- 163   2                      {
- 164   3                              U1SendString(Rec_Buf);
- 165   3                              break;
- 166   3                      }               
- 167   2              }
- 168   1              CLR_Buf();                 
- 169   1              U1SendString("OK,ESP8266 has been set as Station Mode\r\n");    
- 170   1      
- 171   1              
- 172   1              while(!Hand("OK"))                                                                                              //判断是否连接WiFi路由器，如不成功，延时后再次发送
- 173   1              {       
- 174   2                      CLR_Buf();      
- 175   2                      sendCmd(CWJAP);         
- 176   2                      DelayMS(2000);
- 177   2                      if(Hand("no change"))           //如果IP地址已经存在
+ 117          函数参数：
+ 118          函数备注：
+ 119          ***************************/
+ 120          void Init()
+ 121          {               
+ 122   1              RST = 1;                                      // ESP8266复位功能脚，拉低会将ESP8266复位
+ 123   1              UartInit();                                                                   // 初始化串口
+ 124   1              ES = 1;                                       // 串口1中断打开
+ 125   1              IE2 = 0x01;                                   // 串口2中断打开
+ 126   1              EA = 1;                                       // 总中断打开
+ 127   1              DelayMS(3000);                                                                    // 延时一段时间，让ESP8266启动
+ 128   1      
+ 129   1              U1SendString(Rec_Buf);                        // 将ESP8266启动信息通过串口1打印出       
+ 130   1              U1SendString("Welcome to LSE STUDIO,\r\n");     
+ 131   1              CLR_Buf();                                              //清除缓存内容                
+ 132   1      /*****************************/ 
+ 133   1              setWifi(CWMODE,"OK");   
+ 134   1              while(!setWifi(CWJAP,"OK"))
+ 135   1              {
+ 136   2                      delay(10000);
+ 137   2                      U1SendString("the wifi connecting\r\n");
+ 138   2              }
+ 139   1              LED1 = 0;                       //点亮第一个灯,表示wifi连接上了
+ 140   1              setWifi(CIPMODE,"OK");
+ 141   1              while(!setWifi(CIPSTART,"Linked"))
+ 142   1              {
+ 143   2                       U1SendString("好像出了一点问题，连接不上了\r\n");
+ 144   2                       delay(10000);                  //暂时连接不上，待会再连接 
+ 145   2              }
+ 146   1              LED2 = 0;
+ 147   1      /****************************/
+ 148   1      //      setWifi(CIPSTART,"Linked");
+ 149   1      //      DelayMS(1000);  
+ 150   1      //      while(!Hand("Unlink"))                                                                          //判断是否发送数据成功，如不成功，延时后再次发送
+ 151   1      //      {
+ 152   1      //              CLR_Buf();              
+ 153   1      //              sendCmd(CIPSEND); //数据内容    
+ 154   1      //              DelayMS(500);
+ 155   1      //              sendDate(1,""); //数据内容      
+ 156   1      //              DelayMS(500);
+ 157   1      //              U1SendString(Rec_Buf);
+ 158   1      //      }
+ 159   1              CLR_Buf();                
+ 160   1              U1SendString("Congratulations, You can send commands through TCP sever now\r\n");                                                       
+ 161   1      }
+ 162          /**************************
+ 163          函数名称：setWifi 
+ 164          函数作用：发送wifi的一些指令
+ 165          函数参数：cmd发送的参数 str需要匹配的数据
+ 166          函数备注：
+ 167          ***************************/
+ 168          bit setWifi(int cmd,unsigned char *str)
+ 169          {
+ 170   1              int i=0;
+ 171   1              while(!Hand(str))
+ 172   1              {
+ 173   2                      CLR_Buf();      
+ 174   2                      sendCmd(cmd);
+ 175   2                      DelayMS(5000);
+ 176   2                      U1SendString(Rec_Buf);
+ 177   2                      if(Hand("no change")|Hand("ALREAY"))            //如果是no change 或者是Linked就直接返回
  178   2                      {
-C51 COMPILER V9.03   MAIN                                                                  08/06/2015 11:49:22 PAGE 4   
+C51 COMPILER V9.03   MAIN                                                                  08/06/2015 16:21:44 PAGE 4   
 
- 179   3                              U1SendString(Rec_Buf);
- 180   3                              break;
- 181   3                      }
- 182   2                      U1SendString(Rec_Buf);          
- 183   2              }
- 184   1              LED2 = 0;
- 185   1              CLR_Buf();              
- 186   1              U1SendString("OK,Succeed establish connection with WiFi AP\r\n");                       
- 187   1              while(!Hand("Linked"))                        //判断是否连接TCP sever，如不成功，延时后再次发送
- 188   1              {
- 189   2                      CLR_Buf();
- 190   2                      sendCmd(CIPSTART);  
- 191   2                      DelayMS(3000);
- 192   2                      U1SendString(Rec_Buf);
- 193   2              }
- 194   1              CLR_Buf();                
- 195   1              U1SendString("OK,Succeed establish connection with TCP sever\r\n");                     
- 196   1              LED1 = 1;
- 197   1              LED2 = 1;       
- 198   1              sendCmd(CIPMODE); //数据发送指令 
- 199   1              DelayMS(1000);  
- 200   1              while(!Hand("SEND OK"))                                                                         //判断是否发送数据成功，如不成功，延时后再次发送
- 201   1              {
- 202   2                      CLR_Buf();              
- 203   2                      sendCmd(CIPSEND); //数据内容    
- 204   2                      DelayMS(500);
- 205   2                      sendDate(1); //数据内容 
- 206   2                      DelayMS(500);
- 207   2                      U1SendString(Rec_Buf);
- 208   2              }
- 209   1              CLR_Buf();                
- 210   1              U1SendString("Congratulations, You can send commands through TCP sever now\r\n");                                                       
- 211   1      }
- 212          int main()
- 213          {
- 214   1              int i=0;
- 215   1              Init();
- 216   1              init_port();
- 217   1              U1SendString("tooo\n");
- 218   1              while(1)
- 219   1              {
- 220   2                      U1SendString("wangdaye\r\n");   
- 221   2                      delay(1000);
- 222   2              }
- 223   1              return 0;
- 224   1      }
- 225          
- 226          
- 227          bit Hand(unsigned char *a)
- 228          { 
- 229   1          if(strstr(Rec_Buf,a)!=NULL)
- 230   1                  return 1;
- 231   1              else
- 232   1                      return 0;
- 233   1      }
- 234          
- 235          void CLR_Buf(void)
- 236          {
- 237   1              unsigned char k;
- 238   1          for(k=0;k<Buf_Max;k++)    
- 239   1          {
- 240   2                      Rec_Buf[k] = 0;
-C51 COMPILER V9.03   MAIN                                                                  08/06/2015 11:49:22 PAGE 5   
+ 179   3                              break;                  
+ 180   3                      }
+ 181   2                      if(++i == 5)
+ 182   2                      {
+ 183   3                              goto out;
+ 184   3                      }
+ 185   2              }                       
+ 186   1              CLR_Buf();
+ 187   1              return true;
+ 188   1      out:
+ 189   1              CLR_Buf();
+ 190   1              return false;   
+ 191   1      }
+ 192          /**************************
+ 193          函数名称：sendHTTP
+ 194          函数作用：发送http数据
+ 195          函数参数：是发送还是接收，发送的数据是什么，
+ 196          函数备注：
+ 197          ***************************/
+ 198          void sendByte(int len)
+ 199          {
+ 200   1              char reg[4];
+ 201   1              char buff[20]={"AT+CIPSNED="};
+ 202   1              sprintf(reg,"%d",len+2);
+ 203   1              strcat(buff,reg);
+ 204   1              WifiSendString(buff);   
+ 205   1      }
+ 206          bit sendHTTP(int cmd,unsigned char *str)
+ 207          {
+ 208   1              int i=0,len=0;
+ 209   1              len = strlen(str);
+ 210   1              datelen = len;
+ 211   1              while(!setWifi(CIPSTART,"Linked"))
+ 212   1              {
+ 213   2                       U1SendString("好像出了一点问题，连接不上了\r\n");
+ 214   2                       delay(10000);                  //暂时连接不上，待会再连接 
+ 215   2              }
+ 216   1              LED2 = 0;
+ 217   1      
+ 218   1      //      LED2 = 0;               //表示连接上tcp了。
+ 219   1              LED3 = 1;
+ 220   1              setWifi(CIPSEND,">");
+ 221   1              delay(1000);
+ 222   1              switch(cmd)
+ 223   1              {
+ 224   2              case 1:
+ 225   2              //      sendByte(strlen(GetCmd));
+ 226   2                      delay(1000);    
+ 227   2                      sendDate(1,NULL);
+ 228   2                      break;
+ 229   2              case 2:
+ 230   2              //      sendByte(strlen(PostCmd));
+ 231   2                      delay(1000);
+ 232   2                      sendDate(2,str);
+ 233   2                      break;
+ 234   2              default :
+ 235   2                      sendDate(0,NULL); //重启wifi  一般不用
+ 236   2                      break;
+ 237   2              }
+ 238   1              LED3 = 0;       //表示退出TCP连接
+ 239   1              delay(2000);
+ 240   1              U1SendString(Rec_Buf);
+C51 COMPILER V9.03   MAIN                                                                  08/06/2015 16:21:44 PAGE 5   
 
- 241   2              }
- 242   1          i = 0;                    
- 243   1      }
- 244          
- 245          void Uart1() interrupt 4 using 1
- 246          {
- 247   1              ES = 0;
- 248   1              if (RI)
- 249   1          {
- 250   2            RI = 0;                 //清除RI位
- 251   2                Rec_Buf[i] = SBUF; 
- 252   2                i++;               
- 253   2                if(i>Buf_Max)          
- 254   2                {
- 255   3                      i = 0;
- 256   3                } 
- 257   2          }
- 258   1          if (TI)
- 259   1          {
- 260   2              TI = 0;                 //清除TI位
- 261   2      
- 262   2          }
- 263   1              ES =  1;
- 264   1      }
- 265          
- 266          
- 267          
- 268          void Uart2() interrupt 8
- 269          {
- 270   1              IE2 = 0x00;
- 271   1          if (S2CON & S2RI)
- 272   1          {
- 273   2              S2CON &= ~S2RI;         
- 274   2                      Rec_Buf[i] = S2BUF; 
- 275   2                      i++;               
- 276   2                      if(i>Buf_Max)          
- 277   2                      {
- 278   3                              i = 0;
- 279   3                      }     
- 280   2          }
- 281   1          if (S2CON & S2TI)
- 282   1          {
- 283   2              S2CON &= ~S2TI;            
- 284   2          }
- 285   1              IE2 = 0x01;
- 286   1      }
- 287          void init_port()
- 288          {
- 289   1      P0M0 = 0x00;
- 290   1      P0M1 = 0x00;
- 291   1      P1M0 = 0x00;
- 292   1      P1M1 = 0x00;
- 293   1      P2M0 = 0x00;
- 294   1      P2M1 = 0x00;
- 295   1      P3M0 = 0x00;
- 296   1      P3M1 = 0x00;
- 297   1      P4M0 = 0x00;
- 298   1      P4M1 = 0x00;
- 299   1      P5M0 = 0x00;
- 300   1      P5M1 = 0x00;
- 301   1      P6M0 = 0x00;
- 302   1      P6M1 = 0x00;
-C51 COMPILER V9.03   MAIN                                                                  08/06/2015 11:49:22 PAGE 6   
+ 241   1              delay(5000);
+ 242   1              
+ 243   1              return true;
+ 244   1      }
+ 245          
+ 246          int main()
+ 247          {
+ 248   1              int i=0;
+ 249   1              Init();
+ 250   1              init_port();
+ 251   1              
+ 252   1              while(1)
+ 253   1              {
+ 254   2                      sendHTTP(GET,NULL);
+ 255   2                      delay(1000);
+ 256   2                      sendHTTP(POST,"");
+ 257   2                      delay(1000);    
+ 258   2              }
+ 259   1              return 0;
+ 260   1      }
+ 261          
+ 262           /**************************
+ 263          函数名称：Hand
+ 264          函数作用：判断是否运行成功
+ 265          函数参数：输入要判断的字符串
+ 266          函数备注：
+ 267          ***************************/
+ 268          bit Hand(unsigned char *a)
+ 269          { 
+ 270   1          if(strstr(Rec_Buf,a)!=NULL)
+ 271   1                  return 1;
+ 272   1              else
+ 273   1                      return 0;
+ 274   1      }
+ 275          /**************************
+ 276          函数名称：CLR_Buf
+ 277          函数作用：清空接收缓存
+ 278          函数参数：
+ 279          函数备注：
+ 280          ***************************/
+ 281          void CLR_Buf(void)
+ 282          {
+ 283   1              unsigned char k;
+ 284   1          for(k=0;k<Buf_Max;k++)    
+ 285   1          {
+ 286   2                      Rec_Buf[k] = 0;
+ 287   2              }
+ 288   1          i = 0;                    
+ 289   1      }
+ 290          
+ 291          void Uart1() interrupt 4 using 1
+ 292          {
+ 293   1              ES = 0;
+ 294   1              if (RI)
+ 295   1          {
+ 296   2            RI = 0;                 //清除RI位
+ 297   2                Rec_Buf[i] = SBUF; 
+ 298   2                i++;               
+ 299   2                if(i>Buf_Max)          
+ 300   2                {
+ 301   3                      i = 0;
+ 302   3                } 
+C51 COMPILER V9.03   MAIN                                                                  08/06/2015 16:21:44 PAGE 6   
 
- 303   1      P7M0 = 0x00;
- 304   1      P7M1 = 0x00;
- 305   1      }
+ 303   2          }
+ 304   1          if (TI)
+ 305   1          {
+ 306   2              TI = 0;                 //清除TI位
+ 307   2      
+ 308   2          }
+ 309   1              ES =  1;
+ 310   1      }
+ 311          
+ 312          
+ 313          
+ 314          void Uart2() interrupt 8
+ 315          {
+ 316   1              IE2 = 0x00;
+ 317   1          if (S2CON & S2RI)
+ 318   1          {
+ 319   2              S2CON &= ~S2RI;         
+ 320   2                      Rec_Buf[i] = S2BUF; 
+ 321   2                      i++;               
+ 322   2                      if(i>Buf_Max)          
+ 323   2                      {
+ 324   3                              i = 0;
+ 325   3                      }     
+ 326   2          }
+ 327   1          if (S2CON & S2TI)
+ 328   1          {
+ 329   2              S2CON &= ~S2TI;            
+ 330   2          }
+ 331   1              IE2 = 0x01;
+ 332   1      }
+ 333          
+ 334          
+ 335          
+ 336          
+ 337          
+ 338          
+ 339          /**************************
+ 340          函数名称：init_port
+ 341          函数作用：初始化一些串口数据，让每个IO口都是通用IO
+ 342          函数参数：
+ 343          函数备注：
+ 344          ***************************/
+ 345          void init_port()
+ 346          {
+ 347   1      P0M0 = 0x00;
+ 348   1      P0M1 = 0x00;
+ 349   1      P1M0 = 0x00;
+ 350   1      P1M1 = 0x00;
+ 351   1      P2M0 = 0x00;
+ 352   1      P2M1 = 0x00;
+ 353   1      P3M0 = 0x00;
+ 354   1      P3M1 = 0x00;
+ 355   1      P4M0 = 0x00;
+ 356   1      P4M1 = 0x00;
+ 357   1      P5M0 = 0x00;
+ 358   1      P5M1 = 0x00;
+ 359   1      P6M0 = 0x00;
+ 360   1      P6M1 = 0x00;
+ 361   1      P7M0 = 0x00;
+ 362   1      P7M1 = 0x00;
+ 363   1      }
+
+C51 COMPILER V9.03   MAIN                                                                  08/06/2015 16:21:44 PAGE 7   
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =    902    ----
-   CONSTANT SIZE    =    460    ----
-   XDATA SIZE       =   1519      14
+   CODE SIZE        =   1006    ----
+   CONSTANT SIZE    =    326    ----
+   XDATA SIZE       =   1486      45
    PDATA SIZE       =   ----    ----
    DATA SIZE        =   ----    ----
    IDATA SIZE       =   ----    ----
